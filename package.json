@@ -1,0 +1,22 @@
+{
+  "name": "biardflorian_3_20042021",
+  "version": "1.0.0",
+  "description": "projet3-openclassrooms",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WardarkXtreme/BiardFlorian_3_20042021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WardarkXtreme/BiardFlorian_3_20042021/issues"
+  },
+  "homepage": "https://github.com/WardarkXtreme/BiardFlorian_3_20042021#readme",
+  "dependencies": {
+    "sass": "^1.32.11"
+  }
+}

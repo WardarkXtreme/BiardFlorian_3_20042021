@@ -1,0 +1,166 @@
+//--------------Couleur site----------------------//
+$color-primary:#9356DC;
+$color-secondary:#FF79DA;
+$lightcolor-primary: lighten(#9356DC,5%);
+$lightcolor-secondary: lighten(#FF79DA,5%);
+$color-tertiary:#99E2D0;
+$fourth-color:#eaeaea;
+$fifth-color:#f6f6f6;
+$color-backfooter:#353535;
+//--------------Polices---------------------------//
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+//--------------mixin-----------------------------//
+
+//--------------Code-header-----------------------//
+body {
+    padding: 0;
+    margin: 0;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    .header__logo--properties {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 75px;
+        box-shadow: 0 0 8px 0 darkgray;
+    }
+    .header__logo {
+        height: 35px;
+        object-fit: contain;
+    }  
+}
+.header__loc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $fourth-color;
+    height: 65px;
+    .reglage_icone{
+        margin-right: 20px;
+        font-size: 20px;
+    }
+    .text__loc {
+        font-size: 20px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+    }
+}
+.header__present {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: $fifth-color;
+    height: auto;
+    padding-bottom: 14px;
+    h1, h2 {
+        font-family: "Roboto", sans-serif;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    h1{
+        font-size: 24px;
+        font-weight: 500;
+        padding-top: 20px;
+    }
+    h2{
+        margin-top: 0px;
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+.header__btn {
+    background-image: linear-gradient(0deg,$color-primary,$color-secondary);
+    box-shadow: darkgrey 0 2px 4px 0;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    height: 40px;
+    width: 200px;
+    &:hover{
+        background-image: linear-gradient(0deg,$lightcolor-primary,$lightcolor-secondary);
+        box-shadow: darkgrey 0 5px 6px 0;
+    }
+}
+//----------------------------------Code-section-Fonctionnement---------------------------//
+.fonctionnement {
+    font-family: "Roboto", sans-serif;
+    counter-reset: fonct;
+    margin: auto;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.fonct__list {
+    padding: 0;
+}
+.fonct__properties {
+    background-color: $fifth-color;
+    list-style: none;
+    counter-increment: fonct;
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 3px 4px 6px lightgray;
+    height: 60px;
+    width: 100%;
+    &::before {
+        background-color: $color-primary;
+        content: counter(fonct);
+        padding: 5px 9px;
+        border-radius: 50%;
+        color: white;
+        margin-left: -10px;
+        margin-right: 20px;
+    }
+}
+.fonct__icone {
+    margin-right: 20px;
+    color: grey;
+}
+//----------------------------------code-section-restaurants---------------------------//@at-root
+.restaurant {
+    width: 100%;
+    background-color: $fifth-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 1400px;
+    font-family: "Roboto", sans-serif;
+}
+.link__menu {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 5px 8px 12px lightgrey;
+    text-decoration: none;
+    width: 90%;
+    .link__img {
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 180px;
+        width: 100%;
+    }
+    .link__new {
+        background-color: $color-tertiary;
+        color: #008766;
+        width: fit-content;
+        position: absolute;
+        padding: 5px 10px;
+        right: 8%;
+        margin-top: 10px;
+        border-radius: 4px;
+        
+    }
+}
