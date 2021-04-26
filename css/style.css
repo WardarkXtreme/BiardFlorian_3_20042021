@@ -236,7 +236,7 @@ body {
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   position: relative;
-  background-color: white;
+  background-color: #f6f6f6;
   font-family: "Roboto", sans-serif;
   top: -70px;
 }
@@ -261,6 +261,34 @@ body {
   margin-left: 15px;
   border-bottom: solid #99E2D0;
   width: 50px;
+}
+
+.divise__section {
+  padding-bottom: 20px;
+}
+.divise__section .menu {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 3px 4px 7px lightgrey;
+  border-radius: 15px;
+  margin: 15px 15px;
+  padding: 10px 0px 10px 10px;
+  text-decoration: none;
+  color: black;
+}
+.divise__section .menu h3, .divise__section .menu p {
+  margin: 5px 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 25px;
+}
+.divise__section .menu h3 span, .divise__section .menu p span {
+  font-weight: 500;
+}
+.divise__section .menu:hover {
+  box-shadow: 5px 8px 12px lightgrey;
 }
 
 /*# sourceMappingURL=style.css.map */
