@@ -17,6 +17,94 @@ body {
     padding: 0;
     margin: 0;
 }
+.loader {
+    position: fixed;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    animation: loader;
+    animation-delay: 4s;
+    animation-fill-mode: both;
+    .loader__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Shrikhand';
+    font-size: 54px;
+     color: $color-tertiary;
+    animation: movecolor 1.2 linear;
+    -moz-animation: movecolor 1.2 linear;
+    -webkit-animation: movecolor 1.2 linear;
+    animation-duration: 4s;  
+    animation-iteration-count: infinite;
+    }
+}
+@keyframes movecolor {
+    0% {
+        color: $color-primary;
+        text-shadow: 0 0 6px $color-primary;
+    }
+    30% {
+        color: $color-secondary;
+        text-shadow: 0 0 6px $color-secondary;
+    }
+    60% {
+        color: $color-tertiary;
+        text-shadow: 0 0 6px $color-tertiary;
+    }
+    100% {
+        color: $color-primary;
+        text-shadow: 0 0 6px $color-primary;
+    }
+}
+@-webkit-keyframes movecolor {
+    0% {
+        color: $color-primary;
+        text-shadow: 0 0 6px $color-primary;
+    }
+    30% {
+        color: $color-secondary;
+        text-shadow: 0 0 6px $color-secondary;
+    }
+    60% {
+        color: $color-tertiary;
+        text-shadow: 0 0 6px $color-tertiary;
+    }
+    100% {
+        color: $color-primary;
+        text-shadow: 0 0 6px $color-primary;
+    }
+}
+@-moz-keyframes movecolor {
+    0% {
+        color: $color-primary;
+        text-shadow: 0 0 6px $color-primary;
+    }
+    30% {
+        color: $color-secondary;
+        text-shadow: 0 0 6px $color-secondary;
+    }
+    60% {
+        color: $color-tertiary;
+        text-shadow: 0 0 6px $color-tertiary;
+    }
+    100% {
+        color: $color-primary;
+        text-shadow: 0 0 6px $color-primary;
+    }
+}
+@keyframes loader {
+    100% {
+      opacity: 0;
+      z-index: -100;
+    }
+  } 
+.main {
+    position: relative;
+    z-index: 1;
+}
 .header {
     display: flex;
     flex-direction: column;
@@ -205,11 +293,31 @@ body {
         margin-top: 5px;
         margin-left: 10px;
     }
-    .fonct__heart {
-    position: relative;
-    left: 87%;
-    bottom: 60px;
-    font-size: 26px;
+    .heart__properties {
+        text-align: end;
+        padding-right: 20px;
+        position: relative;
+        bottom: 55px;
+        font-size: 32px;
+        .fonct__heart {
+            position: absolute;
+            right: 20px;
+            background-color: white;
+            &:hover {
+                opacity: 0;
+                transition: all 0.5s linear;
+            }
+            &:active {
+                opacity: 0;
+                transition: all 0.5s linear;
+            }
+        }
+        .fonct__heart--full {
+            padding: 0;
+            background: linear-gradient(0deg,$lightcolor-primary,$lightcolor-secondary);    
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+        }
     }
 }
 //-----------------------------------code-footer-------------------------------//
@@ -242,7 +350,7 @@ body {
     position: relative;
     background-color: $fifth-color;
     font-family: "Roboto", sans-serif;
-    top: -70px;
+    margin-top: -70px;
     .carte__title {
         display: flex;
         align-items: center;
@@ -253,9 +361,31 @@ body {
             font-weight: 500;
             padding-left: 15px;
         }
-        .heart__page__menu {
-            font-size: 30px;
-            padding-right: 30px;
+        .heart__properties__menu {
+            text-align: end;
+            padding-right: 20px;
+            position: relative;
+            font-size: 32px;
+            .fonct__heart {
+                position: absolute;
+                right: 20px;
+                bottom: 10px;
+                background-color: white;
+                &:hover {
+                    opacity: 0;
+                    transition: all 0.5s linear;
+                }
+                &:active {
+                    opacity: 0;
+                    transition: all 0.5s linear;
+                }
+            }
+            .fonct__heart--full {
+                padding: 0;
+                background: linear-gradient(0deg,$lightcolor-primary,$lightcolor-secondary);    
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent; 
+            }
         }
     }
     .sectorisation {
@@ -268,7 +398,7 @@ body {
 }
 .divise__section {
     padding-bottom: 20px;
-    .menu {
+    .menu, .menu--time, .menu--time2 {
         display: flex;
         flex-direction: column;
         background-color: white;
@@ -278,14 +408,24 @@ body {
         padding: 10px 0px 10px 10px;
         text-decoration: none;
         color: black;
+        cursor: pointer;
         h3, p {
-            margin: 5px 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-            padding-right: 25px;
-            span{
+            display: block;
+            margin: 0;
+            padding: 0; 
+            padding-right: 50px;
+            height: 23px; 
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;        
+            .prix{
                 font-weight: 500;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                position: relative;
+                bottom: 19px;
+                left: 36px;
             }
         }
         &:hover {
@@ -293,4 +433,49 @@ body {
         }
     }
 }
+.btn__commander{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
 
+//--------------------------------------------------animation-page-menu-------------------------------//
+.menu {    
+    animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+}
+.menu--time {   
+    animation: fadein 3s;
+    -moz-animation: fadein 3s;
+    -webkit-animation: fadein 3s;
+}
+.menu--time2 {   
+    animation: fadein 5s;
+    -moz-animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { 
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { 
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}

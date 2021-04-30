@@ -5,6 +5,96 @@ body {
   margin: 0;
 }
 
+.loader {
+  position: fixed;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  animation: loader;
+  animation-delay: 4s;
+  animation-fill-mode: both;
+}
+.loader .loader__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: "Shrikhand";
+  font-size: 54px;
+  color: #99E2D0;
+  animation: movecolor 1.2 linear;
+  -moz-animation: movecolor 1.2 linear;
+  -webkit-animation: movecolor 1.2 linear;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes movecolor {
+  0% {
+    color: #9356DC;
+    text-shadow: 0 0 6px #9356DC;
+  }
+  30% {
+    color: #FF79DA;
+    text-shadow: 0 0 6px #FF79DA;
+  }
+  60% {
+    color: #99E2D0;
+    text-shadow: 0 0 6px #99E2D0;
+  }
+  100% {
+    color: #9356DC;
+    text-shadow: 0 0 6px #9356DC;
+  }
+}
+@-webkit-keyframes movecolor {
+  0% {
+    color: #9356DC;
+    text-shadow: 0 0 6px #9356DC;
+  }
+  30% {
+    color: #FF79DA;
+    text-shadow: 0 0 6px #FF79DA;
+  }
+  60% {
+    color: #99E2D0;
+    text-shadow: 0 0 6px #99E2D0;
+  }
+  100% {
+    color: #9356DC;
+    text-shadow: 0 0 6px #9356DC;
+  }
+}
+@-moz-keyframes movecolor {
+  0% {
+    color: #9356DC;
+    text-shadow: 0 0 6px #9356DC;
+  }
+  30% {
+    color: #FF79DA;
+    text-shadow: 0 0 6px #FF79DA;
+  }
+  60% {
+    color: #99E2D0;
+    text-shadow: 0 0 6px #99E2D0;
+  }
+  100% {
+    color: #9356DC;
+    text-shadow: 0 0 6px #9356DC;
+  }
+}
+@keyframes loader {
+  100% {
+    opacity: 0;
+    z-index: -100;
+  }
+}
+.main {
+  position: relative;
+  z-index: 1;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -202,11 +292,31 @@ body {
   margin-top: 5px;
   margin-left: 10px;
 }
-.link__menu .fonct__heart {
+.link__menu .heart__properties {
+  text-align: end;
+  padding-right: 20px;
   position: relative;
-  left: 87%;
-  bottom: 60px;
-  font-size: 26px;
+  bottom: 55px;
+  font-size: 32px;
+}
+.link__menu .heart__properties .fonct__heart {
+  position: absolute;
+  right: 20px;
+  background-color: white;
+}
+.link__menu .heart__properties .fonct__heart:hover {
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.link__menu .heart__properties .fonct__heart:active {
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.link__menu .heart__properties .fonct__heart--full {
+  padding: 0;
+  background: linear-gradient(0deg, #a16be0, #ff93e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footer {
@@ -238,7 +348,7 @@ body {
   position: relative;
   background-color: #f6f6f6;
   font-family: "Roboto", sans-serif;
-  top: -70px;
+  margin-top: -70px;
 }
 .carte .carte__title {
   display: flex;
@@ -251,9 +361,31 @@ body {
   font-weight: 500;
   padding-left: 15px;
 }
-.carte .carte__title .heart__page__menu {
-  font-size: 30px;
-  padding-right: 30px;
+.carte .carte__title .heart__properties__menu {
+  text-align: end;
+  padding-right: 20px;
+  position: relative;
+  font-size: 32px;
+}
+.carte .carte__title .heart__properties__menu .fonct__heart {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  background-color: white;
+}
+.carte .carte__title .heart__properties__menu .fonct__heart:hover {
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.carte .carte__title .heart__properties__menu .fonct__heart:active {
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+.carte .carte__title .heart__properties__menu .fonct__heart--full {
+  padding: 0;
+  background: linear-gradient(0deg, #a16be0, #ff93e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .carte .sectorisation {
   font-weight: 300;
@@ -266,7 +398,7 @@ body {
 .divise__section {
   padding-bottom: 20px;
 }
-.divise__section .menu {
+.divise__section .menu, .divise__section .menu--time, .divise__section .menu--time2 {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -276,19 +408,78 @@ body {
   padding: 10px 0px 10px 10px;
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
-.divise__section .menu h3, .divise__section .menu p {
-  margin: 5px 0;
+.divise__section .menu h3, .divise__section .menu p, .divise__section .menu--time h3, .divise__section .menu--time p, .divise__section .menu--time2 h3, .divise__section .menu--time2 p {
+  display: block;
+  margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: space-between;
-  padding-right: 25px;
+  padding-right: 50px;
+  height: 23px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-.divise__section .menu h3 span, .divise__section .menu p span {
+.divise__section .menu h3 .prix, .divise__section .menu p .prix, .divise__section .menu--time h3 .prix, .divise__section .menu--time p .prix, .divise__section .menu--time2 h3 .prix, .divise__section .menu--time2 p .prix {
   font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  bottom: 19px;
+  left: 36px;
 }
-.divise__section .menu:hover {
+.divise__section .menu:hover, .divise__section .menu--time:hover, .divise__section .menu--time2:hover {
   box-shadow: 5px 8px 12px lightgrey;
+}
+
+.btn__commander {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.menu {
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+}
+
+.menu--time {
+  animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  -webkit-animation: fadein 3s;
+}
+
+.menu--time2 {
+  animation: fadein 5s;
+  -moz-animation: fadein 5s;
+  -webkit-animation: fadein 5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
