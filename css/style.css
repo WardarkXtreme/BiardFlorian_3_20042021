@@ -409,6 +409,8 @@ body {
   text-decoration: none;
   color: black;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 .divise__section .menu h3, .divise__section .menu p, .divise__section .menu--time h3, .divise__section .menu--time p, .divise__section .menu--time2 h3, .divise__section .menu--time2 p {
   display: block;
@@ -429,8 +431,22 @@ body {
   bottom: 19px;
   left: 36px;
 }
+.divise__section .menu .menu__animation, .divise__section .menu--time .menu__animation, .divise__section .menu--time2 .menu__animation {
+  display: none;
+}
 .divise__section .menu:hover, .divise__section .menu--time:hover, .divise__section .menu--time2:hover {
   box-shadow: 5px 8px 12px lightgrey;
+}
+.divise__section .menu:hover .menu__animation, .divise__section .menu--time:hover .menu__animation, .divise__section .menu--time2:hover .menu__animation {
+  display: flex;
+  animation: validmove 0.5s linear;
+}
+.divise__section .menu:hover .menu__animation .menu__animation__icone, .divise__section .menu--time:hover .menu__animation .menu__animation__icone, .divise__section .menu--time2:hover .menu__animation .menu__animation__icone {
+  animation: turn 0.8s linear;
+}
+.divise__section .menu:hover .prix, .divise__section .menu--time:hover .prix, .divise__section .menu--time2:hover .prix {
+  left: -25px;
+  transition-duration: 0.8s;
 }
 
 .btn__commander {
@@ -479,6 +495,49 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+.menu__animation {
+  position: absolute;
+  bottom: 0px;
+  right: 0%;
+  display: flex;
+  height: 100%;
+  width: 66px;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #99E2D0;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.menu__animation .menu__animation__icone {
+  display: flex;
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  margin-left: 15px;
+  background-color: white;
+  color: #99E2D0;
+  border-radius: 50%;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes validmove {
+  0% {
+    right: -15%;
+  }
+  100% {
+    right: 0%;
   }
 }
 

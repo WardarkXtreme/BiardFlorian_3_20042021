@@ -409,6 +409,8 @@ body {
         text-decoration: none;
         color: black;
         cursor: pointer;
+        position: relative;
+        overflow: hidden;
         h3, p {
             display: block;
             margin: 0;
@@ -428,8 +430,23 @@ body {
                 left: 36px;
             }
         }
+        .menu__animation{
+            display: none;
+        }
         &:hover {
             box-shadow: 5px 8px 12px lightgrey;
+
+            .menu__animation{
+                display: flex;
+                animation: validmove .5s linear;
+                .menu__animation__icone{
+                    animation: turn .8s linear;
+                }
+            }
+            .prix {
+                left: -25px;
+                transition-duration: .8s;
+            }
         }
     }
 }
@@ -438,7 +455,6 @@ body {
     justify-content: center;
     padding-bottom: 40px;
 }
-
 //--------------------------------------------------animation-page-menu-------------------------------//
 .menu {    
     animation: fadein 1s;
@@ -477,5 +493,47 @@ body {
     }
     to {
         opacity:1;
+    }
+}
+.menu__animation {
+    position: absolute;
+    bottom: 0px;
+    right: 0%;
+    display: flex;
+    height: 100%;
+    width: 66px;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $color-tertiary;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    .menu__animation__icone {
+    display: flex;
+    height: 25px;
+    width: 25px;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    margin-left: 15px;
+    background-color: white;
+    color: $color-tertiary;
+    border-radius: 50%;
+    }
+}
+@keyframes turn {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes validmove {
+    0% {
+        right: -15%;
+    }
+    100% {
+        right: 0%;
     }
 }
