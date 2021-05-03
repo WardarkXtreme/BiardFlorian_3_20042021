@@ -553,5 +553,56 @@ body {
     right: 0%;
   }
 }
+@media screen and (min-width: 1024px) {
+  .fonct__list {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .fonct__list .fonct__properties {
+    min-width: 280px;
+    max-width: 340px;
+    margin: 0 20px;
+  }
+
+  .restaurant {
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    height: 420px;
+    width: 100%;
+    position: relative;
+    padding-top: 35px;
+  }
+  .restaurant h1 {
+    position: absolute;
+    top: 0;
+    left: 5%;
+  }
+  .restaurant .link__menu {
+    min-width: 100px;
+    max-width: 400px;
+    position: relative;
+    margin: 0 20px;
+  }
+}
+@media screen and (min-width: 1124px) {
+  .carte {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .carte .divise__section {
+    max-width: 500px;
+    min-width: 250px;
+  }
+  .carte .carte__title {
+    width: 100%;
+  }
+  .carte .btn__commander {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
