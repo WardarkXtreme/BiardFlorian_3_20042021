@@ -159,8 +159,8 @@ body {
   box-shadow: darkgrey 0 2px 4px 0;
   border-radius: 25px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   color: white;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -452,14 +452,35 @@ body {
 }
 .divise__section .menu:hover h3, .divise__section .menu:hover p, .divise__section .menu--time:hover h3, .divise__section .menu--time:hover p, .divise__section .menu--time2:hover h3, .divise__section .menu--time2:hover p {
   animation: placetext linear;
+  -moz-animation: placetext linear;
   animation-duration: 0.5s;
   animation-fill-mode: both;
+  -moz-animation-duration: 0.5s;
 }
 .divise__section .menu:hover .menu__animation, .divise__section .menu--time:hover .menu__animation, .divise__section .menu--time2:hover .menu__animation {
   display: flex;
   animation: validmove 0.5s linear;
+  -moz-animation: validmove 0.5s linear;
 }
 .divise__section .menu:hover .menu__animation .menu__animation__icone, .divise__section .menu--time:hover .menu__animation .menu__animation__icone, .divise__section .menu--time2:hover .menu__animation .menu__animation__icone {
+  animation: turn 0.8s linear;
+}
+.divise__section .menu:active, .divise__section .menu--time:active, .divise__section .menu--time2:active {
+  box-shadow: 5px 8px 12px lightgrey;
+}
+.divise__section .menu:active h3, .divise__section .menu:active p, .divise__section .menu--time:active h3, .divise__section .menu--time:active p, .divise__section .menu--time2:active h3, .divise__section .menu--time2:active p {
+  animation: placetext linear;
+  -moz-animation: placetext linear;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  -moz-animation-duration: 0.5s;
+}
+.divise__section .menu:active .menu__animation, .divise__section .menu--time:active .menu__animation, .divise__section .menu--time2:active .menu__animation {
+  display: flex;
+  animation: validmove 0.5s linear;
+  -moz-animation: validmove 0.5s linear;
+}
+.divise__section .menu:active .menu__animation .menu__animation__icone, .divise__section .menu--time:active .menu__animation .menu__animation__icone, .divise__section .menu--time2:active .menu__animation .menu__animation__icone {
   animation: turn 0.8s linear;
 }
 
@@ -554,12 +575,28 @@ body {
     right: 0%;
   }
 }
+@-moz-keyframes validmove {
+  0% {
+    right: -15%;
+  }
+  100% {
+    right: 0%;
+  }
+}
 @keyframes placetext {
   0% {
     width: 100%;
   }
   100% {
-    width: 68%;
+    width: 66%;
+  }
+}
+@-moz-keyframes placetext {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 66%;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -605,6 +642,9 @@ body {
   .carte .divise__section {
     max-width: 500px;
     min-width: 250px;
+  }
+  .carte .divise__section .menu, .carte .divise__section .menu--time, .carte .divise__section .menu--time2 {
+    width: 330px;
   }
   .carte .carte__title {
     width: 100%;

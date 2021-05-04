@@ -11,7 +11,11 @@ $color-backfooter:#353535;
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 //--------------mixin-----------------------------//
-
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 //--------------Code-header-----------------------//
 body {
     padding: 0;
@@ -27,13 +31,11 @@ body {
     animation-delay: 4s;
     animation-fill-mode: both;
     .loader__title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     height: 100%;
     font-family: 'Shrikhand';
     font-size: 54px;
-     color: $color-tertiary;
+    color: $color-tertiary;
     animation: movecolor 1.2 linear;
     -moz-animation: movecolor 1.2 linear;
     -webkit-animation: movecolor 1.2 linear;
@@ -109,9 +111,7 @@ body {
     display: flex;
     flex-direction: column;
     .header__logo--properties {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex;
         position: relative;
         height: 75px;
         box-shadow: 0 0 8px 0 darkgray;
@@ -122,9 +122,7 @@ body {
     }  
 }
 .header__loc{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     background-color: $fourth-color;
     height: 65px;
     .reglage_icone{
@@ -165,9 +163,7 @@ body {
     background-image: linear-gradient(0deg,$color-primary,$color-secondary);
     box-shadow: darkgrey 0 2px 4px 0;
     border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex;
     color: white;
     text-decoration: none;
     font-family: "Roboto", sans-serif;
@@ -179,9 +175,7 @@ body {
     }
 }
 .header__logo--properties__page__menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     position: relative;
     height: 75px;
     .btn__return {
@@ -450,12 +444,33 @@ body {
             box-shadow: 5px 8px 12px lightgrey;
             h3, p {
                 animation: placetext linear;
+                -moz-animation: placetext linear;
                 animation-duration: .5s;
                 animation-fill-mode: both;
+                -moz-animation-duration: .5s;
             }   
             .menu__animation{
                 display: flex;
                 animation: validmove .5s linear;
+                -moz-animation: validmove .5s linear;
+                .menu__animation__icone{
+                    animation: turn .8s linear;
+                }
+            }
+        }
+        &:active {
+            box-shadow: 5px 8px 12px lightgrey;
+            h3, p {
+                animation: placetext linear;
+                -moz-animation: placetext linear;
+                animation-duration: .5s;
+                animation-fill-mode: both;
+                -moz-animation-duration: .5s;
+            }   
+            .menu__animation{
+                display: flex;
+                animation: validmove .5s linear;
+                -moz-animation: validmove .5s linear;
                 .menu__animation__icone{
                     animation: turn .8s linear;
                 }
@@ -550,12 +565,28 @@ body {
         right: 0%;
     }
 }
+@-moz-keyframes validmove {
+    0% {
+        right: -15%;
+    }
+    100% {
+        right: 0%;
+    }
+}
 @keyframes placetext {
     0% {
         width: 100%;
     }
     100% {
-        width: 68%;
+        width: 66%;
+    }
+}
+@-moz-keyframes placetext {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 66%;
     }
 }
 //----------------------------------responsive-home------------------------//
@@ -601,6 +632,9 @@ body {
         .divise__section {
             max-width: 500px;
             min-width: 250px;
+            .menu, .menu--time, .menu--time2 {
+                width: 330px;
+            }
         }
         .carte__title {
             width: 100%;
