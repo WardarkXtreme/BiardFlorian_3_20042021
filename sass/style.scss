@@ -448,17 +448,17 @@ body {
         }
         &:hover {
             box-shadow: 5px 8px 12px lightgrey;
-
+            h3, p {
+                animation: placetext linear;
+                animation-duration: .5s;
+                animation-fill-mode: both;
+            }   
             .menu__animation{
                 display: flex;
                 animation: validmove .5s linear;
                 .menu__animation__icone{
                     animation: turn .8s linear;
                 }
-            }
-            .prix {
-                left: -25px;
-                transition-duration: .8s;
             }
         }
     }
@@ -548,6 +548,14 @@ body {
     }
     100% {
         right: 0%;
+    }
+}
+@keyframes placetext {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 68%;
     }
 }
 //----------------------------------responsive-home------------------------//
