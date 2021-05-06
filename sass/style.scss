@@ -485,21 +485,21 @@ body {
 }
 //--------------------------------------------------animation-page-menu-------------------------------//
 .menu {    
-    animation: fadein 1s;
-    -moz-animation: fadein 1s;
-    -webkit-animation: fadein 1s;
+    animation: apparition-progressive 1s;
+    -moz-animation: apparition-progressive 1s;
+    -webkit-animation: apparition-progressive 1s;
 }
 .menu--time {   
-    animation: fadein 3s;
-    -moz-animation: fadein 3s;
-    -webkit-animation: fadein 3s;
+    animation: apparition-progressive 3s;
+    -moz-animation: apparition-progressive 3s;
+    -webkit-animation: apparition-progressive 3s;
 }
 .menu--time2 {   
-    animation: fadein 5s;
-    -moz-animation: fadein 5s;
-    -webkit-animation: fadein 5s;
+    animation: apparition-progressive 5s;
+    -moz-animation: apparition-progressive 5s;
+    -webkit-animation: apparition-progressive 5s;
 }
-@keyframes fadein {
+@keyframes apparition-progressive {
     from {
         opacity:0;
     }
@@ -507,7 +507,7 @@ body {
         opacity:1;
     }
 }
-@-moz-keyframes fadein { 
+@-moz-keyframes apparition-progressive { 
     from {
         opacity:0;
     }
@@ -515,7 +515,7 @@ body {
         opacity:1;
     }
 }
-@-webkit-keyframes fadein { 
+@-webkit-keyframes apparition-progressive { 
     from {
         opacity:0;
     }
